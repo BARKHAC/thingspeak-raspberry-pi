@@ -9,7 +9,7 @@ import time
 def doit():
 	cpu_pc = psutil.cpu_percent()
 	mem_avail_mb = psutil.avail_phymem()/1000000
-	cpu_temp = = round(int(open('/sys/class/thermal/thermal_zone0/temp').read()) / 1e3,1)
+	cpu_temp = round(int(open('/sys/class/thermal/thermal_zone0/temp').read()) / 1e3,1)
 	params = urllib.urlencode({'field1': cpu_pc, 'field2': mem_avail_mb, 'field3': cpu_temp,'key':'YOURKEYHERE'})
 	headers = {"Content-type": "application/x-www-form-urlencoded","Accept": "text/plain"}
 	conn = httplib.HTTPConnection("api.thingspeak.com:80")
